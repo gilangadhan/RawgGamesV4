@@ -1,0 +1,8 @@
+disabled_rules:
+  # Very annoying becuase IDE formatter.
+  - trailing_whitespace
+
+  # Temporary
+  - comment_spacing
+  - orphaned_doc_comment
+  - vertical_whitespace
