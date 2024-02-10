@@ -44,9 +44,6 @@
 		E97D16332B74F1B100A73C78 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16322B74F1B100A73C78 /* InitialView.swift */; };
 		E97D16372B74FC6100A73C78 /* FavoriteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16362B74FC6100A73C78 /* FavoriteDataSource.swift */; };
 		E97D16422B74FF6900A73C78 /* FavoriteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16412B74FF6900A73C78 /* FavoriteDataSourceImpl.swift */; };
-		E97D16462B75020B00A73C78 /* GameCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E97D16442B75020B00A73C78 /* GameCoreData.xcdatamodeld */; };
-		E97D16482B7503AA00A73C78 /* CoreDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16472B7503AA00A73C78 /* CoreDataPublisher.swift */; };
-		E97D164A2B75047500A73C78 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16492B75047500A73C78 /* CoreDataManager.swift */; };
 		E97D164C2B750B2000A73C78 /* FavoriteRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D164B2B750B2000A73C78 /* FavoriteRepo.swift */; };
 		E97D164E2B750B4500A73C78 /* FavoriteRepoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D164D2B750B4500A73C78 /* FavoriteRepoImpl.swift */; };
 		E98D15AA2B76341C00C1F27E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E98D15A92B76341C00C1F27E /* Alamofire */; };
@@ -75,6 +72,7 @@
 		E9A94C072B779A6500D7C40D /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E9A94C062B779A6500D7C40D /* Core */; };
 		E9A94C0D2B77B44000D7C40D /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E9A94C0C2B77B44000D7C40D /* Core */; };
 		E9ABA2802B770B1A009CB66D /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E9ABA27F2B770B1A009CB66D /* Core */; };
+		E9B518482B78374B00F9F3D9 /* Favorite in Frameworks */ = {isa = PBXBuildFile; productRef = E9B518472B78374B00F9F3D9 /* Favorite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,9 +125,6 @@
 		E97D16322B74F1B100A73C78 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		E97D16362B74FC6100A73C78 /* FavoriteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDataSource.swift; sourceTree = "<group>"; };
 		E97D16412B74FF6900A73C78 /* FavoriteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDataSourceImpl.swift; sourceTree = "<group>"; };
-		E97D16452B75020B00A73C78 /* GameCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameCoreData.xcdatamodel; sourceTree = "<group>"; };
-		E97D16472B7503AA00A73C78 /* CoreDataPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPublisher.swift; sourceTree = "<group>"; };
-		E97D16492B75047500A73C78 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E97D164B2B750B2000A73C78 /* FavoriteRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepo.swift; sourceTree = "<group>"; };
 		E97D164D2B750B4500A73C78 /* FavoriteRepoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepoImpl.swift; sourceTree = "<group>"; };
 		E98D15AC2B7638B200C1F27E /* ListParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListParameters.swift; sourceTree = "<group>"; };
@@ -162,6 +157,7 @@
 			files = (
 				E9A0EED92B77B98100F80209 /* Games in Frameworks */,
 				E98D15AA2B76341C00C1F27E /* Alamofire in Frameworks */,
+				E9B518482B78374B00F9F3D9 /* Favorite in Frameworks */,
 				E9ABA2802B770B1A009CB66D /* Core in Frameworks */,
 				E9A94C0D2B77B44000D7C40D /* Core in Frameworks */,
 				E9A94C072B779A6500D7C40D /* Core in Frameworks */,
@@ -428,7 +424,6 @@
 		E97D16342B74FC1100A73C78 /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				E97D16432B7501BB00A73C78 /* CoreData */,
 				E97D16382B74FC6500A73C78 /* DataSource */,
 			);
 			path = Local;
@@ -453,16 +448,6 @@
 				E97D16412B74FF6900A73C78 /* FavoriteDataSourceImpl.swift */,
 			);
 			path = DataSource;
-			sourceTree = "<group>";
-		};
-		E97D16432B7501BB00A73C78 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				E97D16442B75020B00A73C78 /* GameCoreData.xcdatamodeld */,
-				E97D16472B7503AA00A73C78 /* CoreDataPublisher.swift */,
-				E97D16492B75047500A73C78 /* CoreDataManager.swift */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		E98D15AB2B7638A300C1F27E /* Parameters */ = {
@@ -552,6 +537,7 @@
 				E9A94C062B779A6500D7C40D /* Core */,
 				E9A94C0C2B77B44000D7C40D /* Core */,
 				E9A0EED82B77B98100F80209 /* Games */,
+				E9B518472B78374B00F9F3D9 /* Favorite */,
 			);
 			productName = RawgGamesV4;
 			productReference = E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */;
@@ -607,6 +593,7 @@
 				E98D15A82B76341C00C1F27E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E9A94C0B2B77B44000D7C40D /* XCLocalSwiftPackageReference "../Modules/Core" */,
 				E9A0EED72B77B98100F80209 /* XCLocalSwiftPackageReference "../Modules/Games" */,
+				E9B518462B78374B00F9F3D9 /* XCLocalSwiftPackageReference "../Modules/Favorite" */,
 			);
 			productRefGroup = E967E7CE2B73AA1F007BADD0 /* Products */;
 			projectDirPath = "";
@@ -680,13 +667,11 @@
 				E99E065A2B73E2E2006E44AF /* GameRepoImpl.swift in Sources */,
 				E97D164C2B750B2000A73C78 /* FavoriteRepo.swift in Sources */,
 				E967E8032B73C4A4007BADD0 /* GameListTile.swift in Sources */,
-				E97D16462B75020B00A73C78 /* GameCoreData.xcdatamodeld in Sources */,
 				E99E064B2B73DFB6006E44AF /* GameDataSource.swift in Sources */,
 				E98D15AD2B7638B200C1F27E /* ListParameters.swift in Sources */,
 				E994968E2B75CE7F007622FA /* SearchPresenter.swift in Sources */,
 				E97D16102B74532A00A73C78 /* Injection.swift in Sources */,
 				E99E06522B73E11D006E44AF /* GameDataSourceImpl.swift in Sources */,
-				E97D16482B7503AA00A73C78 /* CoreDataPublisher.swift in Sources */,
 				E99E06642B73E5DA006E44AF /* PopularPresenter.swift in Sources */,
 				E97D16252B74CC4F00A73C78 /* GameMapper.swift in Sources */,
 				E99E06442B73D08D006E44AF /* MyNavigation.swift in Sources */,
@@ -719,7 +704,6 @@
 				E98D15AF2B7638D300C1F27E /* DetailParameters.swift in Sources */,
 				E97D16332B74F1B100A73C78 /* InitialView.swift in Sources */,
 				E96A4CB92B75306900C6F7C4 /* FavoritePresenter.swift in Sources */,
-				E97D164A2B75047500A73C78 /* CoreDataManager.swift in Sources */,
 				E967E8012B73C434007BADD0 /* AboutView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1000,6 +984,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../Modules/Core;
 		};
+		E9B518462B78374B00F9F3D9 /* XCLocalSwiftPackageReference "../Modules/Favorite" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Modules/Favorite;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1035,20 +1023,11 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
 		};
-/* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		E97D16442B75020B00A73C78 /* GameCoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E97D16452B75020B00A73C78 /* GameCoreData.xcdatamodel */,
-			);
-			currentVersion = E97D16452B75020B00A73C78 /* GameCoreData.xcdatamodel */;
-			path = GameCoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+		E9B518472B78374B00F9F3D9 /* Favorite */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Favorite;
 		};
-/* End XCVersionGroup section */
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E967E7C52B73AA1E007BADD0 /* Project object */;
 }

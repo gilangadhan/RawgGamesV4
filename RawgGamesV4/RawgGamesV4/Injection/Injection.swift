@@ -6,6 +6,7 @@
 //
 
 import Core
+import Favorite
 import Games
 
 final class Injection {
@@ -24,19 +25,34 @@ final class Injection {
             GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Res,
             GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>>
 
+    typealias GetFavoritesUseCase = Interactor<
+        GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
+            GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
+            GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
+
+    typealias AddFavoritesUseCase = Interactor<
+        AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
+            AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
+            AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
+
+    typealias RemoveFavoritesUseCase = Interactor<
+        RemoveFavoritesRepo<FavoriteLocalSrc>.Req,
+            RemoveFavoritesRepo<FavoriteLocalSrc>.Res,
+            RemoveFavoritesRepo<FavoriteLocalSrc>>
+
     // Create singleton of data source.
 //    private static let gameSource: GameDataSource = GameDataSourceImpl()
-    private static let favoriteSource: FavoriteDataSource = FavoriteDataSourceImpl(
-        manager: CoreDataManager.manager
-    )
+//    private static let favoriteSource: FavoriteDataSource = FavoriteDataSourceImpl(
+//        manager: CoreDataManager.manager
+//    )
 
     // Create singleton of repo.
 //    private static let gameRepo: GameRepo = GameRepoImpl(
 //        gameSource: gameSource
 //    )
-    private static let favoriteRepo: FavoriteRepo = FavoriteRepoImpl(
-        favoriteSource: favoriteSource
-    )
+//    private static let favoriteRepo: FavoriteRepo = FavoriteRepoImpl(
+//        favoriteSource: favoriteSource
+//    )
 
     // Create singleton of use case.
     private static var gameUseCase: GameUseCaseType {
@@ -58,10 +74,44 @@ final class Injection {
         let interactor = Interactor(repo: repo)
         return interactor
     }
-//    private static let gameUseCaseOld: GameUseCase = GameInteractor(repo: gameRepo)
-    private static let favoriteUseCase: FavoriteUseCase = FavoriteInteractor(
-        repo: favoriteRepo
-    )
+    private static var getFavoritesUseCase: GetFavoritesUseCase {
+        let manager = CoreDataManager.manager
+        let local = FavoriteLocalSrc(
+            manager: manager
+        )
+        let repo = GetFavoritesRepo(
+            favoriteSrc: local,
+            mapperRes: FavoriteTransformer()
+        )
+        let interactor = Interactor(repo: repo)
+        return interactor
+    }
+    private static var addFavoritesUseCase: AddFavoritesUseCase {
+        let manager = CoreDataManager.manager
+        let local = FavoriteLocalSrc(
+            manager: manager
+        )
+        let repo = AddFavoritesRepo(
+            favoriteSrc: local,
+            mapperReq: FavoriteTransformer()
+        )
+        let interactor = Interactor(repo: repo)
+        return interactor
+    }
+    private static var removeFavoritesUseCase: RemoveFavoritesUseCase {
+        let manager = CoreDataManager.manager
+        let local = FavoriteLocalSrc(
+            manager: manager
+        )
+        let repo = RemoveFavoritesRepo(
+            favoriteSrc: local
+        )
+        let interactor = Interactor(repo: repo)
+        return interactor
+    }
+//    private static let favoriteUseCaseOld: FavoriteUseCase = FavoriteInteractor(
+//        repo: favoriteRepo
+//    )
 
     /// Get presenter for popular.
     func getPopular() -> PopularPresenter {
@@ -73,7 +123,9 @@ final class Injection {
     /// Get presenter for favorite.
     func getFavorite() -> FavoritePresenter {
         return FavoritePresenter(
-            favoriteUseCase: Injection.favoriteUseCase
+            getFavoritesUseCase: Injection.getFavoritesUseCase,
+            addFavoritesUseCase: Injection.addFavoritesUseCase,
+            removeFavoritesUseCase: Injection.removeFavoritesUseCase
         )
     }
 

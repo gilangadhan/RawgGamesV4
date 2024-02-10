@@ -25,11 +25,16 @@ public struct FavoriteLocalSrc: LocalSrc {
     }
 
     /// Get context for Core Data.
-    private var context: NSManagedObjectContext {
-        manager.container.viewContext
+    private var context: NSManagedObjectContext? {
+        manager.container?.viewContext
     }
 
     public func getList(_ request: Req?) -> AnyPublisher<[Res], Error> {
+        guard let context = context else {
+            return CurrentValueSubject<[Res], Error>([])
+                .eraseToAnyPublisher()
+        }
+
         let favorite = FavoriteEntity.fetchRequest()
         /// Sort by title first.
         favorite.sortDescriptors = [
@@ -57,6 +62,10 @@ public struct FavoriteLocalSrc: LocalSrc {
 
     public func get(id: IdType) -> AnyPublisher<Res?, Error> {
         let future = Future<Res?, Error> {
+            guard let context = context else {
+                return nil
+            }
+
             let fetchRequest = FavoriteEntity.fetchRequest()
             fetchRequest.fetchLimit = 1
             fetchRequest.predicate = NSPredicate(format: "id == \(id)")
@@ -77,6 +86,10 @@ public struct FavoriteLocalSrc: LocalSrc {
 
     public func add(entities: [Res]) -> AnyPublisher<Void, Error> {
         let future = Future<Void, Error> {
+            guard let context = context else {
+                return
+            }
+
             for entity in entities {
                 entity.setCoreData(context: context)
             }
@@ -87,6 +100,10 @@ public struct FavoriteLocalSrc: LocalSrc {
 
     public func update(id: IdType, entity: Res) -> AnyPublisher<Void, Error> {
         let future = Future<Void, Error> {
+            guard let context = context else {
+                return
+            }
+
             let fetchRequest = FavoriteEntity.fetchRequest()
             fetchRequest.fetchLimit = 1
             fetchRequest.predicate = NSPredicate(format: "id == \(id)")
@@ -104,6 +121,10 @@ public struct FavoriteLocalSrc: LocalSrc {
 
     public func remove(id: IdType) -> AnyPublisher<Void, Error> {
         let future = Future<Void, Error> {
+            guard let context = context else {
+                return
+            }
+
             if id.isEmpty {
                 return
             }

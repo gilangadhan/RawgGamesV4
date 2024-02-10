@@ -10,14 +10,11 @@ import Core
 import Foundation
 
 public struct RemoveFavoritesRepo<
-    FavoriteLocalSrc: LocalSrc,
-    MapperReq: Mapper
+    FavoriteLocalSrc: LocalSrc
 >: Repo where
 FavoriteLocalSrc.Res == FavoriteLocalEntity,
 FavoriteLocalSrc.Req == Any,
-FavoriteLocalSrc.IdType == String,
-MapperReq.DataModel == [FavoriteLocalEntity],
-MapperReq.Domain == [FavoriteModel]
+FavoriteLocalSrc.IdType == String
 {
 
     public typealias Req = String
@@ -25,14 +22,11 @@ MapperReq.Domain == [FavoriteModel]
     public typealias Res = Void
 
     private let favoriteSrc: FavoriteLocalSrc
-    private let mapperReq: MapperReq
 
     public init(
-        favoriteSrc: FavoriteLocalSrc,
-        mapperReq: MapperReq
+        favoriteSrc: FavoriteLocalSrc
     ) {
         self.favoriteSrc = favoriteSrc
-        self.mapperReq = mapperReq
     }
 
     public func execute(_ req: Req?) -> AnyPublisher<Res, Error> {

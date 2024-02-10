@@ -1,20 +1,20 @@
+////
+////  FavoriteUseCase.swift
+////  RawgGamesV4
+////
+////  Created by Dhimas Dewanto on 08/02/24.
+////
 //
-//  FavoriteUseCase.swift
-//  RawgGamesV4
+//import Combine
+//import Games
 //
-//  Created by Dhimas Dewanto on 08/02/24.
+//protocol FavoriteUseCase {
+//    /// Get favorite games.
+//    func getFavorites() -> AnyPublisher<[GameModel], Error>
 //
-
-import Combine
-import Games
-
-protocol FavoriteUseCase {
-    /// Get favorite games.
-    func getFavorites() -> AnyPublisher<[GameModel], Error>
-
-    /// Save favorite game.
-    func addFavorite(game: GameModel) throws
-
-    /// Remove favorite game based on id.
-    func removeFavorite(id: String) throws
-}
+//    /// Save favorite game.
+//    func addFavorite(game: GameModel) throws
+//
+//    /// Remove favorite game based on id.
+//    func removeFavorite(id: String) throws
+//}

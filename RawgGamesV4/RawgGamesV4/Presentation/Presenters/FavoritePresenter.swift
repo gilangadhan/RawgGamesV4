@@ -6,16 +6,25 @@
 //
 
 import Core
-import SwiftUI
+import Favorite
 import Games
+import SwiftUI
 
 /// Presenter to get list favorite games, also action to add or remove favorite.
 class FavoritePresenter: BlocPresenter<FavoriteState, FavoriteEvent> {
-    private let favoriteUseCase: FavoriteUseCase
+    private let getFavoritesUseCase: Injection.GetFavoritesUseCase
+    private let addFavoritesUseCase: Injection.AddFavoritesUseCase
+    private let removeFavoritesUseCase: Injection.RemoveFavoritesUseCase
     let router = FavoriteRouter()
-    
-    init(favoriteUseCase: FavoriteUseCase) {
-        self.favoriteUseCase = favoriteUseCase
+
+    init(
+        getFavoritesUseCase: Injection.GetFavoritesUseCase,
+        addFavoritesUseCase: Injection.AddFavoritesUseCase,
+        removeFavoritesUseCase: Injection.RemoveFavoritesUseCase
+    ) {
+        self.getFavoritesUseCase = getFavoritesUseCase
+        self.addFavoritesUseCase = addFavoritesUseCase
+        self.removeFavoritesUseCase = removeFavoritesUseCase
         super.init(state: FavoriteState())
         listenFavorites()
     }
@@ -46,27 +55,40 @@ class FavoritePresenter: BlocPresenter<FavoriteState, FavoriteEvent> {
     
     /// Add favorite to use case.
     private func addFavorite(game: GameModel) {
-        do {
-            try favoriteUseCase.addFavorite(game: game)
-            state.errorMessage = ""
-        } catch {
-            state.errorMessage = error.localizedDescription
-        }
+        addFavoritesUseCase
+            .execute([toFavorite(game)])
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+
+                /// If use case response error.
+                if case .failure(let error) = completion {
+                    state.errorMessage = error.localizedDescription
+                }
+            } receiveValue: { _ in }
+            .store(in: &cancellables)
     }
     
     /// Remove favorite from use case.
     private func removeFavorite(id: String) {
-        do {
-            try favoriteUseCase.removeFavorite(id: id)
-            state.errorMessage = ""
-        } catch {
-            state.errorMessage = error.localizedDescription
-        }
+        removeFavoritesUseCase
+            .execute(id)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+
+                /// If use case response error.
+                if case .failure(let error) = completion {
+                    state.errorMessage = error.localizedDescription
+                }
+            } receiveValue: { _ in }
+            .store(in: &cancellables)
     }
     
     /// Listen changes of list favorite games.
     private func listenFavorites() {
-        favoriteUseCase.getFavorites()
+        getFavoritesUseCase
+            .execute(nil)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self = self else { return }
@@ -78,9 +100,32 @@ class FavoritePresenter: BlocPresenter<FavoriteState, FavoriteEvent> {
             } receiveValue: { [weak self] listFavorites in
                 guard let self = self else { return }
                 
-                state.listFavorites = listFavorites
+                state.listFavorites = listFavorites.map({ favorite in
+                    self.toGame(favorite)
+                })
                 state.errorMessage = ""
             }
             .store(in: &cancellables)
     }
+
+    func toFavorite(_ game: GameModel) -> FavoriteModel {
+        FavoriteModel(
+            id: game.id,
+            title: game.title,
+            imgSrc: game.imgSrc,
+            released: game.released,
+            rating: game.rating
+        )
+    }
+
+    func toGame(_ favorite: FavoriteModel) -> GameModel {
+        GameModel(
+            id: favorite.id,
+            title: favorite.title,
+            imgSrc: favorite.imgSrc,
+            released: favorite.released,
+            rating: favorite.rating
+        )
+    }
+
 }
