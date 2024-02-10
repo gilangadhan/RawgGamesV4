@@ -8,11 +8,19 @@
 import Combine
 
 public protocol LocalSrc {
+    
     associatedtype Req
     associatedtype Res
+    associatedtype IdType
 
-    func getList(request: Req?) -> AnyPublisher<[Res], Error>
-    func get(id: String) -> AnyPublisher<Res, Error>
+    func getList(_ request: Req?) -> AnyPublisher<[Res], Error>
+
+    func get(id: IdType) -> AnyPublisher<Res?, Error>
+
     func add(entities: [Res]) -> AnyPublisher<Void, Error>
-    func update(id: Int, entity: Res) -> AnyPublisher<Void, Error>
+
+    func update(id: IdType, entity: Res) -> AnyPublisher<Void, Error>
+
+    func remove(id: IdType) -> AnyPublisher<Void, Error>
+
 }

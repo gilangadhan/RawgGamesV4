@@ -1,14 +1,14 @@
 //
-//  GameModel.swift
-//  RawgGamesV4
+//  File.swift
+//  
 //
-//  Created by Dhimas Dewanto on 07/02/24.
+//  Created by TMLI IT Dev on 11/02/24.
 //
 
 import Foundation
 
-/// Model for list games and list result of search games.
-public struct GameModel {
+/// Model for favorite games.
+public struct FavoriteModel {
     public let id: String
     public let title: String
     public let imgSrc: String
