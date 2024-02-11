@@ -9,30 +9,60 @@ import Core
 import Favorite
 import Games
 
+typealias GetGamesRepoType = GetGamesRepo<
+    GetGamesRemoteSrc,
+    GamesTransformer,
+    GamesReqTranformer
+>
+
+typealias GetDetailGameRepoType = GetDetailGameRepo<
+    GetDetailGameRemoteSrc,
+    DetailGameTransformer
+>
+
+typealias GetFavoritesRepoType = GetFavoritesRepo<
+    FavoriteLocalSrc,
+    FavoriteTransformer
+>
+
+typealias AddFavoritesRepoType = AddFavoritesRepo<
+    FavoriteLocalSrc,
+    FavoriteTransformer
+>
+
+typealias RemoveFavoritesRepoType = RemoveFavoritesRepo<
+    FavoriteLocalSrc
+>
+
 typealias GameUseCaseType = Interactor<
-    GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>.Req,
-        GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>.Res,
-        GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>>
+    GetGamesRepoType.Req,
+    GetGamesRepoType.Res,
+    GetGamesRepoType
+>
 
 typealias GetDetailGameUseCase = Interactor<
-    GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Req,
-        GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Res,
-        GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>>
+    GetDetailGameRepoType.Req,
+    GetDetailGameRepoType.Res,
+    GetDetailGameRepoType
+>
 
 typealias GetFavoritesUseCase = Interactor<
-    GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
-        GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
-        GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
+    GetFavoritesRepoType.Req,
+    GetFavoritesRepoType.Res,
+    GetFavoritesRepoType
+>
 
 typealias AddFavoritesUseCase = Interactor<
-    AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
-        AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
-        AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
+    AddFavoritesRepoType.Req,
+    AddFavoritesRepoType.Res,
+    AddFavoritesRepoType
+>
 
 typealias RemoveFavoritesUseCase = Interactor<
-    RemoveFavoritesRepo<FavoriteLocalSrc>.Req,
-        RemoveFavoritesRepo<FavoriteLocalSrc>.Res,
-        RemoveFavoritesRepo<FavoriteLocalSrc>>
+    RemoveFavoritesRepoType.Req,
+    RemoveFavoritesRepoType.Res,
+    RemoveFavoritesRepoType
+>
 
 final class Injection {
     /// Create singleton of`Injection`.
@@ -42,9 +72,9 @@ final class Injection {
 
     // Create singleton of use case.
     //TODO: Should set like this
-//    func gameUseCase2<U: UseCase>() -> U where U.Req == GamesParams, U.Res == [GameModel] {
-//        return Injection.gameUseCase as! U
-//    }
+    //    func gameUseCase2<U: UseCase>() -> U where U.Req == GamesParams, U.Res == [GameModel] {
+    //        return Injection.gameUseCase as! U
+    //    }
 
     private static var gameUseCase: GameUseCaseType {
         let remote = GetGamesRemoteSrc()
