@@ -11,10 +11,10 @@ import Games
 
 /// Presenter to get detail game.
 class DetailPresenter: BlocPresenter<DetailState, DetailEvent> {
-    private let gameUseCase: Injection.GetDetailGameUseCase
+    private let gameUseCase: GetDetailGameUseCase
 
     init(
-        gameUseCase: Injection.GetDetailGameUseCase,
+        gameUseCase: GetDetailGameUseCase,
         game: GameModel
     ) {
         self.gameUseCase = gameUseCase

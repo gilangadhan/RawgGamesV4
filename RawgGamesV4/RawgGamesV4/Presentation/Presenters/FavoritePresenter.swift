@@ -12,15 +12,15 @@ import SwiftUI
 
 /// Presenter to get list favorite games, also action to add or remove favorite.
 class FavoritePresenter: BlocPresenter<FavoriteState, FavoriteEvent> {
-    private let getFavoritesUseCase: Injection.GetFavoritesUseCase
-    private let addFavoritesUseCase: Injection.AddFavoritesUseCase
-    private let removeFavoritesUseCase: Injection.RemoveFavoritesUseCase
+    private let getFavoritesUseCase: GetFavoritesUseCase
+    private let addFavoritesUseCase: AddFavoritesUseCase
+    private let removeFavoritesUseCase: RemoveFavoritesUseCase
     let router = FavoriteRouter()
 
     init(
-        getFavoritesUseCase: Injection.GetFavoritesUseCase,
-        addFavoritesUseCase: Injection.AddFavoritesUseCase,
-        removeFavoritesUseCase: Injection.RemoveFavoritesUseCase
+        getFavoritesUseCase: GetFavoritesUseCase,
+        addFavoritesUseCase: AddFavoritesUseCase,
+        removeFavoritesUseCase: RemoveFavoritesUseCase
     ) {
         self.getFavoritesUseCase = getFavoritesUseCase
         self.addFavoritesUseCase = addFavoritesUseCase

@@ -13,10 +13,10 @@ import Games
 /// Presenter to handle search games.
 /// NOTE: Doesn't have infinite scroll pagination like `PopularPresenter`. 
 class SearchPresenter: BlocPresenter<SearchState, SearchEvent> {
-    private let gameUseCase: Injection.GameUseCaseType
+    private let gameUseCase: GameUseCaseType
     let router = SearchRouter()
 
-    init(gameUseCase: Injection.GameUseCaseType) {
+    init(gameUseCase: GameUseCaseType) {
         self.gameUseCase = gameUseCase
         super.init(state: SearchState())
     }

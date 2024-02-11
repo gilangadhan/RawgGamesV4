@@ -9,52 +9,43 @@ import Core
 import Favorite
 import Games
 
+typealias GameUseCaseType = Interactor<
+    GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>.Req,
+        GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>.Res,
+        GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>>
+
+typealias GetDetailGameUseCase = Interactor<
+    GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Req,
+        GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Res,
+        GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>>
+
+typealias GetFavoritesUseCase = Interactor<
+    GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
+        GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
+        GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
+
+typealias AddFavoritesUseCase = Interactor<
+    AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
+        AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
+        AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
+
+typealias RemoveFavoritesUseCase = Interactor<
+    RemoveFavoritesRepo<FavoriteLocalSrc>.Req,
+        RemoveFavoritesRepo<FavoriteLocalSrc>.Res,
+        RemoveFavoritesRepo<FavoriteLocalSrc>>
+
 final class Injection {
     /// Create singleton of`Injection`.
     static let shared: Injection = Injection()
 
     private init() {}
 
-    typealias GameUseCaseType = Interactor<
-        GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>.Req,
-            GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>.Res,
-            GetGamesRepo<GetGamesRemoteSrc, GamesTransformer, GamesReqTranformer>>
-
-    typealias GetDetailGameUseCase = Interactor<
-        GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Req,
-            GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>.Res,
-            GetDetailGameRepo<GetDetailGameRemoteSrc, DetailGameTransformer>>
-
-    typealias GetFavoritesUseCase = Interactor<
-        GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
-            GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
-            GetFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
-
-    typealias AddFavoritesUseCase = Interactor<
-        AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Req,
-            AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>.Res,
-            AddFavoritesRepo<FavoriteLocalSrc, FavoriteTransformer>>
-
-    typealias RemoveFavoritesUseCase = Interactor<
-        RemoveFavoritesRepo<FavoriteLocalSrc>.Req,
-            RemoveFavoritesRepo<FavoriteLocalSrc>.Res,
-            RemoveFavoritesRepo<FavoriteLocalSrc>>
-
-    // Create singleton of data source.
-//    private static let gameSource: GameDataSource = GameDataSourceImpl()
-//    private static let favoriteSource: FavoriteDataSource = FavoriteDataSourceImpl(
-//        manager: CoreDataManager.manager
-//    )
-
-    // Create singleton of repo.
-//    private static let gameRepo: GameRepo = GameRepoImpl(
-//        gameSource: gameSource
-//    )
-//    private static let favoriteRepo: FavoriteRepo = FavoriteRepoImpl(
-//        favoriteSource: favoriteSource
-//    )
-
     // Create singleton of use case.
+    //TODO: Should set like this
+//    func gameUseCase2<U: UseCase>() -> U where U.Req == GamesParams, U.Res == [GameModel] {
+//        return Injection.gameUseCase as! U
+//    }
+
     private static var gameUseCase: GameUseCaseType {
         let remote = GetGamesRemoteSrc()
         let repo = GetGamesRepo(
@@ -109,9 +100,6 @@ final class Injection {
         let interactor = Interactor(repo: repo)
         return interactor
     }
-//    private static let favoriteUseCaseOld: FavoriteUseCase = FavoriteInteractor(
-//        repo: favoriteRepo
-//    )
 
     /// Get presenter for popular.
     func getPopular() -> PopularPresenter {
