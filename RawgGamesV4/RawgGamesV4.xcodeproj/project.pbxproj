@@ -21,9 +21,7 @@
 		E96A4CBD2B7530C900C6F7C4 /* FavoriteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A4CBC2B7530C900C6F7C4 /* FavoriteEvent.swift */; };
 		E96A4CBF2B7537D300C6F7C4 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A4CBE2B7537D300C6F7C4 /* FavoriteRouter.swift */; };
 		E96BE9A92B75F8890077D06C /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BE9A82B75F8890077D06C /* SearchRouter.swift */; };
-		E96BE9C42B7611F00077D06C /* GameInteratorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BE9C32B7611F00077D06C /* GameInteratorTest.swift */; };
 		E96BE9CA2B762A300077D06C /* GameRepoImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BE9C92B762A300077D06C /* GameRepoImplTest.swift */; };
-		E96BE9CC2B762C5D0077D06C /* FavoriteRepoImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BE9CB2B762C5D0077D06C /* FavoriteRepoImplTest.swift */; };
 		E97D16102B74532A00A73C78 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D160F2B74532A00A73C78 /* Injection.swift */; };
 		E97D16132B7458CD00A73C78 /* PopularEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16122B7458CD00A73C78 /* PopularEvent.swift */; };
 		E97D16192B746A4600A73C78 /* BlocPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16182B746A4600A73C78 /* BlocPresenter.swift */; };
@@ -78,9 +76,7 @@
 		E96A4CBE2B7537D300C6F7C4 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		E96BE9A82B75F8890077D06C /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		E96BE9B72B76119C0077D06C /* RawgGamesV4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RawgGamesV4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E96BE9C32B7611F00077D06C /* GameInteratorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteratorTest.swift; sourceTree = "<group>"; };
 		E96BE9C92B762A300077D06C /* GameRepoImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepoImplTest.swift; sourceTree = "<group>"; };
-		E96BE9CB2B762C5D0077D06C /* FavoriteRepoImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepoImplTest.swift; sourceTree = "<group>"; };
 		E97D160F2B74532A00A73C78 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		E97D16122B7458CD00A73C78 /* PopularEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularEvent.swift; sourceTree = "<group>"; };
 		E97D16182B746A4600A73C78 /* BlocPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocPresenter.swift; sourceTree = "<group>"; };
@@ -222,17 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				E96BE9C12B7611B70077D06C /* Data */,
-				E96BE9C02B7611B10077D06C /* Domain */,
 			);
 			path = RawgGamesV4Tests;
-			sourceTree = "<group>";
-		};
-		E96BE9C02B7611B10077D06C /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				E96BE9C52B76187C0077D06C /* Interactor */,
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		E96BE9C12B7611B70077D06C /* Data */ = {
@@ -243,18 +230,9 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		E96BE9C52B76187C0077D06C /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				E96BE9C32B7611F00077D06C /* GameInteratorTest.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		E96BE9C82B762A1F0077D06C /* Repo */ = {
 			isa = PBXGroup;
 			children = (
-				E96BE9CB2B762C5D0077D06C /* FavoriteRepoImplTest.swift */,
 				E96BE9C92B762A300077D06C /* GameRepoImplTest.swift */,
 			);
 			path = Repo;
@@ -489,9 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96BE9CC2B762C5D0077D06C /* FavoriteRepoImplTest.swift in Sources */,
 				E96BE9CA2B762A300077D06C /* GameRepoImplTest.swift in Sources */,
-				E96BE9C42B7611F00077D06C /* GameInteratorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

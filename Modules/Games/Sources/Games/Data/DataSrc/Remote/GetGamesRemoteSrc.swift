@@ -35,7 +35,7 @@ public struct GetGamesRemoteSrc: RemoteSrc {
     public func execute(_ req: Req?) -> AnyPublisher<Res, Error> {
         let future = Future<Res, Error> {
             guard let req = req else {
-                throw RemoteError.unknown("GameDataSourceImpl.getList req is nil")
+                throw RemoteError.unknown("GetGamesRemoteSrc req is nil")
             }
 
             let page = req.page
@@ -66,7 +66,7 @@ public struct GetGamesRemoteSrc: RemoteSrc {
                 return value
             }
 
-            throw RemoteError.unknown("GameDataSourceImpl.getList not respond")
+            throw RemoteError.unknown("GetGamesRemoteSrc not respond")
         }
 
         return future.eraseToAnyPublisher()

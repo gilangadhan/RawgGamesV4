@@ -35,7 +35,7 @@ public struct GetDetailGameRemoteSrc: RemoteSrc {
     public func execute(_ req: Req?) -> AnyPublisher<Res, Error> {
         let future = Future<Res, Error> {
             guard let id = req else {
-                throw RemoteError.unknown("GameDataSourceImpl.getList req is nil")
+                throw RemoteError.unknown("GetDetailGameRemoteSrc req is nil")
             }
 
             let params = DetailGameParameters(key: self.apiKey)
@@ -53,7 +53,7 @@ public struct GetDetailGameRemoteSrc: RemoteSrc {
                 return value
             }
 
-            throw RemoteError.unknown("GameDataSourceImpl.getDetail not respond")
+            throw RemoteError.unknown("GetDetailGameRemoteSrc not respond")
         }
         return future.eraseToAnyPublisher()
     }
