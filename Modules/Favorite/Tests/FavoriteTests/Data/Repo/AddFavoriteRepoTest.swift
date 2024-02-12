@@ -3,50 +3,36 @@ import Core
 import XCTest
 
 @testable import Favorite
-final class GetFavoritesRepoTest: XCTestCase {
+final class AddFavoriteRepoTest: XCTestCase {
     private var cancellables = Set<AnyCancellable>()
     private let favoriteSrc: FavoriteLocalSrcMock = FavoriteLocalSrcMock()
     private let mapper: FavoriteTransformer = FavoriteTransformer()
-    private var repo: GetFavoritesRepo<FavoriteLocalSrcMock, FavoriteTransformer>?
+    private var repo: AddFavoritesRepo<FavoriteLocalSrcMock, FavoriteTransformer>?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        repo = GetFavoritesRepo(favoriteSrc: favoriteSrc, mapperRes: mapper)
+        repo = AddFavoritesRepo(favoriteSrc: favoriteSrc, mapperReq: mapper)
     }
 
-    /// Should success get favorites data from repo without any more process.
-    func testGetListEmpty() throws {
-        repo?
-            .execute(nil)
-            .sink { _ in
-                //
-            } receiveValue: { listGames in
-                let isValid = listGames.isEmpty
-                XCTAssert(isValid)
-            }
-            .store(in: &cancellables)
-    }
-
-    /// Should success get favorites data from repo without any more process
-    /// and get single correct response.
-    func testGetSingleCorrect() throws {
-        let initialValue = FavoriteLocalEntity(
+    /// Should success insert 1 favorite.
+    func testSuccessAddingFavorite() throws {
+        let initialValue = FavoriteModel(
             id: "123",
             title: "title",
             imgSrc: "",
-            rating: 5,
-            released: nil
+            released: nil,
+            rating: 5
         )
 
-        /// Insert single data first.
-        favoriteSrc
-            .add(entities: [initialValue])
+        /// Insert single data first to repo.
+        repo?
+            .execute([initialValue])
             .sink(receiveCompletion: {_ in }, receiveValue: {})
             .store(in: &cancellables)
 
-        /// Get single data with correct value.
-        repo?
-            .execute(nil)
+        /// Check single data with correct value.
+        favoriteSrc
+            .getList(nil)
             .sink { _ in
                 //
             } receiveValue: { favorites in
@@ -61,7 +47,7 @@ final class GetFavoritesRepoTest: XCTestCase {
     }
 }
 
-extension GetFavoritesRepoTest {
+extension AddFavoriteRepoTest {
     class FavoriteLocalSrcMock: LocalSrc {
 
         @Published private var listFavorites: [FavoriteLocalEntity] = []

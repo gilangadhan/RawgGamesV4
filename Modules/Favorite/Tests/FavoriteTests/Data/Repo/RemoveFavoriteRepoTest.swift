@@ -3,33 +3,23 @@ import Core
 import XCTest
 
 @testable import Favorite
-final class GetFavoritesRepoTest: XCTestCase {
+final class RemoveFavoriteRepoTest: XCTestCase {
     private var cancellables = Set<AnyCancellable>()
     private let favoriteSrc: FavoriteLocalSrcMock = FavoriteLocalSrcMock()
     private let mapper: FavoriteTransformer = FavoriteTransformer()
-    private var repo: GetFavoritesRepo<FavoriteLocalSrcMock, FavoriteTransformer>?
+    private var repo: RemoveFavoritesRepo<FavoriteLocalSrcMock>?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        repo = GetFavoritesRepo(favoriteSrc: favoriteSrc, mapperRes: mapper)
+        repo = RemoveFavoritesRepo(favoriteSrc: favoriteSrc)
     }
 
-    /// Should success get favorites data from repo without any more process.
-    func testGetListEmpty() throws {
-        repo?
-            .execute(nil)
-            .sink { _ in
-                //
-            } receiveValue: { listGames in
-                let isValid = listGames.isEmpty
-                XCTAssert(isValid)
-            }
-            .store(in: &cancellables)
-    }
+    /// Should success insert 1 favorite.
+    func testSuccessRemove() throws {
+        guard let repo = repo else {
+            return
+        }
 
-    /// Should success get favorites data from repo without any more process
-    /// and get single correct response.
-    func testGetSingleCorrect() throws {
         let initialValue = FavoriteLocalEntity(
             id: "123",
             title: "title",
@@ -44,24 +34,33 @@ final class GetFavoritesRepoTest: XCTestCase {
             .sink(receiveCompletion: {_ in }, receiveValue: {})
             .store(in: &cancellables)
 
-        /// Get single data with correct value.
-        repo?
-            .execute(nil)
-            .sink { _ in
-                //
-            } receiveValue: { favorites in
-                let favorite = favorites.first { favorite in
-                    favorite.id == initialValue.id &&
-                    favorite.title == initialValue.title
+        /// Then, remove it.
+        repo
+            .execute(initialValue.id)
+            .sink(receiveCompletion: { [weak self] completion in
+                /// Only check if remove is completed.
+                if case .finished = completion {
+                    guard let self = self else { return }
+
+                    /// Should be empty..
+                    favoriteSrc
+                        .getList(nil)
+                        .sink { _ in
+                        } receiveValue: { favorites in
+                            let favorite = favorites.first { favorite in
+                                favorite.id == initialValue.id
+                            }
+                            let isEmpty = favorite == nil
+                            XCTAssert(isEmpty)
+                        }
+                        .store(in: &cancellables)
                 }
-                let isValid = favorite != nil
-                XCTAssert(isValid)
-            }
+            }, receiveValue: {})
             .store(in: &cancellables)
     }
 }
 
-extension GetFavoritesRepoTest {
+extension RemoveFavoriteRepoTest {
     class FavoriteLocalSrcMock: LocalSrc {
 
         @Published private var listFavorites: [FavoriteLocalEntity] = []
@@ -104,7 +103,7 @@ extension GetFavoritesRepoTest {
         func remove(id: String) -> AnyPublisher<Void, Error> {
             return Future<Void, Error> {
                 self.listFavorites.removeAll { entity in
-                    entity.id == id
+                    return entity.id == id
                 }
             }.eraseToAnyPublisher()
         }
