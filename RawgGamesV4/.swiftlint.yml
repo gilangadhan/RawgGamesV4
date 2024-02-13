@@ -2,6 +2,10 @@ disabled_rules:
   # Very annoying becuase IDE formatter.
   - trailing_whitespace
 
+  # Need force cast in Injection to provide generic type of use case
+  # Get example from project Dicoding "TheMealsApp/Core/DI/Injection"
+  - force_cast
+
   # Temporary
   - comment_spacing
   - orphaned_doc_comment
