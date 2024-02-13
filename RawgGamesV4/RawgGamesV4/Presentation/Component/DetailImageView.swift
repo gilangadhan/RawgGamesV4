@@ -5,6 +5,7 @@
 //  Created by Dhimas Dewanto on 08/02/24.
 //
 
+import CachedAsyncImage
 import Games
 import SwiftUI
 
@@ -14,7 +15,7 @@ struct DetailImageView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            AsyncImage(url: URL(string: detail.bgImg)) { phase in
+            CachedAsyncImage(url: URL(string: detail.bgImg)) { phase in
                 if let image = phase.image {
                     image
                         .resizable()
@@ -30,7 +31,7 @@ struct DetailImageView: View {
                         .padding(.vertical, 100)
                 }
             }
-            AsyncImage(url: URL(string: detail.moreBgImg)) { phase in
+            CachedAsyncImage(url: URL(string: detail.moreBgImg)) { phase in
                 if let image = phase.image {
                     image
                         .resizable()

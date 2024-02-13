@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E960EC052B7B4B8900EC2DD3 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = E960EC032B7B4B8900EC2DD3 /* ApiKey.plist */; };
 		E960EC062B7B4B8900EC2DD3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E960EC042B7B4B8900EC2DD3 /* .gitignore */; };
+		E960EC092B7B516600EC2DD3 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = E960EC082B7B516600EC2DD3 /* CachedAsyncImage */; };
 		E967E7D12B73AA1F007BADD0 /* RawgGamesV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967E7D02B73AA1F007BADD0 /* RawgGamesV4App.swift */; };
 		E967E7D32B73AA1F007BADD0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967E7D22B73AA1F007BADD0 /* HomeView.swift */; };
 		E967E7D52B73AA21007BADD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E967E7D42B73AA21007BADD0 /* Assets.xcassets */; };
@@ -111,6 +112,7 @@
 				E98D15AA2B76341C00C1F27E /* Alamofire in Frameworks */,
 				E9B518482B78374B00F9F3D9 /* Favorite in Frameworks */,
 				E9ABA2802B770B1A009CB66D /* Core in Frameworks */,
+				E960EC092B7B516600EC2DD3 /* CachedAsyncImage in Frameworks */,
 				E9A94C0D2B77B44000D7C40D /* Core in Frameworks */,
 				E9A94C072B779A6500D7C40D /* Core in Frameworks */,
 			);
@@ -330,6 +332,7 @@
 				E9A94C0C2B77B44000D7C40D /* Core */,
 				E9A0EED82B77B98100F80209 /* Games */,
 				E9B518472B78374B00F9F3D9 /* Favorite */,
+				E960EC082B7B516600EC2DD3 /* CachedAsyncImage */,
 			);
 			productName = RawgGamesV4;
 			productReference = E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */;
@@ -386,6 +389,7 @@
 				E9A94C0B2B77B44000D7C40D /* XCLocalSwiftPackageReference "../Modules/Core" */,
 				E9A0EED72B77B98100F80209 /* XCLocalSwiftPackageReference "../Modules/Games" */,
 				E9B518462B78374B00F9F3D9 /* XCLocalSwiftPackageReference "../Modules/Favorite" */,
+				E960EC072B7B516600EC2DD3 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = E967E7CE2B73AA1F007BADD0 /* Products */;
 			projectDirPath = "";
@@ -759,6 +763,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E960EC072B7B516600EC2DD3 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 		E98D15A82B76341C00C1F27E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -770,6 +782,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E960EC082B7B516600EC2DD3 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E960EC072B7B516600EC2DD3 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
 		E98D15A92B76341C00C1F27E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E98D15A82B76341C00C1F27E /* XCRemoteSwiftPackageReference "Alamofire" */;

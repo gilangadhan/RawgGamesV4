@@ -5,8 +5,9 @@
 //  Created by Dhimas Dewanto on 07/02/24.
 //
 
-import SwiftUI
+import CachedAsyncImage
 import Games
+import SwiftUI
 
 /// View for tile in List in popular games, search games, and favorite games.
 struct GameListTile<TargetView: View>: View {
@@ -32,7 +33,7 @@ struct GameListTile<TargetView: View>: View {
     var body: some View {
         let bgColor = Color(UIColor.systemBackground)
 
-        AsyncImage(url: URL(string: game.imgSrc)) { phase in
+        CachedAsyncImage(url: URL(string: game.imgSrc)) { phase in
             if let image = phase.image {
                 image
                     .renderingMode(.original)
