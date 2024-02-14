@@ -4,7 +4,7 @@ disabled_rules:
 
   # Need force cast in Injection to provide generic type of use case
   # Get example from project Dicoding "TheMealsApp/Core/DI/Injection"
-  - force_cast
+#  - force_cast
 
   # Temporary
   - comment_spacing

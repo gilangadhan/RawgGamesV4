@@ -13,10 +13,10 @@ import Games
 /// Presenter to handle list popular games.
 /// Has feature of infinite scroll pagination.
 class PopularPresenter: BlocPresenter<PopularState, PopularEvent> {
-    private let gameUseCase: GameUseCaseType
+    private let gameUseCase: GamesUseCaseType
     let router = PopularRouter()
 
-    init(gameUseCase: GameUseCaseType) {
+    init(gameUseCase: GamesUseCaseType) {
         self.gameUseCase = gameUseCase
         super.init(state: PopularState())
     }

@@ -10,6 +10,8 @@
 		E960EC052B7B4B8900EC2DD3 /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = E960EC032B7B4B8900EC2DD3 /* ApiKey.plist */; };
 		E960EC062B7B4B8900EC2DD3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E960EC042B7B4B8900EC2DD3 /* .gitignore */; };
 		E960EC092B7B516600EC2DD3 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = E960EC082B7B516600EC2DD3 /* CachedAsyncImage */; };
+		E960EC0C2B7B55E200EC2DD3 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960EC0B2B7B55E200EC2DD3 /* Container.swift */; };
+		E960EC0F2B7B56C400EC2DD3 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E960EC0E2B7B56C400EC2DD3 /* Swinject */; };
 		E967E7D12B73AA1F007BADD0 /* RawgGamesV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967E7D02B73AA1F007BADD0 /* RawgGamesV4App.swift */; };
 		E967E7D32B73AA1F007BADD0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967E7D22B73AA1F007BADD0 /* HomeView.swift */; };
 		E967E7D52B73AA21007BADD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E967E7D42B73AA21007BADD0 /* Assets.xcassets */; };
@@ -65,6 +67,7 @@
 /* Begin PBXFileReference section */
 		E960EC032B7B4B8900EC2DD3 /* ApiKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		E960EC042B7B4B8900EC2DD3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E960EC0B2B7B55E200EC2DD3 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RawgGamesV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E967E7D02B73AA1F007BADD0 /* RawgGamesV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgGamesV4App.swift; sourceTree = "<group>"; };
 		E967E7D22B73AA1F007BADD0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 				E960EC092B7B516600EC2DD3 /* CachedAsyncImage in Frameworks */,
 				E9A94C0D2B77B44000D7C40D /* Core in Frameworks */,
 				E9A94C072B779A6500D7C40D /* Core in Frameworks */,
+				E960EC0F2B7B56C400EC2DD3 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +141,13 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		E960EC0D2B7B56C400EC2DD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E967E7C42B73AA1E007BADD0 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +155,7 @@
 				E967E7CF2B73AA1F007BADD0 /* RawgGamesV4 */,
 				E96BE9B82B76119C0077D06C /* RawgGamesV4Tests */,
 				E967E7CE2B73AA1F007BADD0 /* Products */,
+				E960EC0D2B7B56C400EC2DD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +269,7 @@
 		E97D160E2B74531B00A73C78 /* Injection */ = {
 			isa = PBXGroup;
 			children = (
+				E960EC0B2B7B55E200EC2DD3 /* Container.swift */,
 				E97D160F2B74532A00A73C78 /* Injection.swift */,
 			);
 			path = Injection;
@@ -333,6 +346,7 @@
 				E9A0EED82B77B98100F80209 /* Games */,
 				E9B518472B78374B00F9F3D9 /* Favorite */,
 				E960EC082B7B516600EC2DD3 /* CachedAsyncImage */,
+				E960EC0E2B7B56C400EC2DD3 /* Swinject */,
 			);
 			productName = RawgGamesV4;
 			productReference = E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */;
@@ -390,6 +404,7 @@
 				E9A0EED72B77B98100F80209 /* XCLocalSwiftPackageReference "../Modules/Games" */,
 				E9B518462B78374B00F9F3D9 /* XCLocalSwiftPackageReference "../Modules/Favorite" */,
 				E960EC072B7B516600EC2DD3 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				E960EC0A2B7B559100EC2DD3 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = E967E7CE2B73AA1F007BADD0 /* Products */;
 			projectDirPath = "";
@@ -477,6 +492,7 @@
 				E994968A2B75CCDC007622FA /* SearchView.swift in Sources */,
 				E99E06692B73E6E6006E44AF /* PopularState.swift in Sources */,
 				E96BE9A92B75F8890077D06C /* SearchRouter.swift in Sources */,
+				E960EC0C2B7B55E200EC2DD3 /* Container.swift in Sources */,
 				E97D16332B74F1B100A73C78 /* InitialView.swift in Sources */,
 				E96A4CB92B75306900C6F7C4 /* FavoritePresenter.swift in Sources */,
 				E967E8012B73C434007BADD0 /* AboutView.swift in Sources */,
@@ -771,6 +787,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		E960EC0A2B7B559100EC2DD3 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
 		E98D15A82B76341C00C1F27E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -786,6 +810,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E960EC072B7B516600EC2DD3 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		E960EC0E2B7B56C400EC2DD3 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E960EC0A2B7B559100EC2DD3 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 		E98D15A92B76341C00C1F27E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

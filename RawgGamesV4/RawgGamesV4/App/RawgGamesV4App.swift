@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct RawgGamesV4App: App {
+    init() {
+        Container.registerServices()
+    }
+
     var body: some Scene {
         WindowGroup {
             HomeView()
