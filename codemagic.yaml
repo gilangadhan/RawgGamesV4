@@ -6,7 +6,7 @@ workflows:
             xcode: latest
             cocoapods: default
             vars:
-                XCODE_PROJECT: "RawgGamesV4.xcodeproj" # Isikan nama project Anda.
+                XCODE_PROJECT: "RawgGamesV4/RawgGamesV4.xcodeproj" # Isikan nama project Anda.
                 XCODE_SCHEME: "RawgGamesV4" # Isikan nama scheme project Anda.
         scripts:
             - name: Run Tests
