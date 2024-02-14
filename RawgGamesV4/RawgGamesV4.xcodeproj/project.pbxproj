@@ -12,7 +12,7 @@
 		E960EC092B7B516600EC2DD3 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = E960EC082B7B516600EC2DD3 /* CachedAsyncImage */; };
 		E960EC0C2B7B55E200EC2DD3 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960EC0B2B7B55E200EC2DD3 /* Container.swift */; };
 		E960EC0F2B7B56C400EC2DD3 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E960EC0E2B7B56C400EC2DD3 /* Swinject */; };
-		E960EC112B7C6E6600EC2DD3 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = E960EC102B7C6E6600EC2DD3 /* codemagic.yaml */; };
+		E960EC132B7C6EF100EC2DD3 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = E960EC122B7C6EF100EC2DD3 /* codemagic.yaml */; };
 		E967E7D12B73AA1F007BADD0 /* RawgGamesV4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967E7D02B73AA1F007BADD0 /* RawgGamesV4App.swift */; };
 		E967E7D32B73AA1F007BADD0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967E7D22B73AA1F007BADD0 /* HomeView.swift */; };
 		E967E7D52B73AA21007BADD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E967E7D42B73AA21007BADD0 /* Assets.xcassets */; };
@@ -69,7 +69,7 @@
 		E960EC032B7B4B8900EC2DD3 /* ApiKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		E960EC042B7B4B8900EC2DD3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E960EC0B2B7B55E200EC2DD3 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		E960EC102B7C6E6600EC2DD3 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
+		E960EC122B7C6EF100EC2DD3 /* codemagic.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = codemagic.yaml; path = ../codemagic.yaml; sourceTree = "<group>"; };
 		E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RawgGamesV4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E967E7D02B73AA1F007BADD0 /* RawgGamesV4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgGamesV4App.swift; sourceTree = "<group>"; };
 		E967E7D22B73AA1F007BADD0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				E99E06412B73CE84006E44AF /* .swiftlint.yml */,
-				E960EC102B7C6E6600EC2DD3 /* codemagic.yaml */,
+				E960EC122B7C6EF100EC2DD3 /* codemagic.yaml */,
 				E960EC0D2B7B56C400EC2DD3 /* Frameworks */,
 				E967E7CE2B73AA1F007BADD0 /* Products */,
 				E967E7CF2B73AA1F007BADD0 /* RawgGamesV4 */,
@@ -427,9 +427,9 @@
 				E960EC062B7B4B8900EC2DD3 /* .gitignore in Resources */,
 				E99E06422B73CE85006E44AF /* .swiftlint.yml in Resources */,
 				E960EC052B7B4B8900EC2DD3 /* ApiKey.plist in Resources */,
-				E960EC112B7C6E6600EC2DD3 /* codemagic.yaml in Resources */,
 				E967E7D82B73AA21007BADD0 /* Preview Assets.xcassets in Resources */,
 				E967E7D52B73AA21007BADD0 /* Assets.xcassets in Resources */,
+				E960EC132B7C6EF100EC2DD3 /* codemagic.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
