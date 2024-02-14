@@ -1,31 +1,30 @@
 workflows:
-    ios-project-debug: RawgGamesV4
-    name: iOS debug RawgGamesV4
-#    max_build_duration: 120
-    instance_type: mac_mini_m1
-    environment:
-        xcode: latest
-        cocoapods: default
-        vars:
-            XCODE_PROJECT: "RawgGamesV4/RawgGamesV4.xcodeproj" # Isikan nama project Anda.
-            XCODE_SCHEME: "RawgGamesV4/RawgGamesV4" # Isikan nama scheme project Anda.
-    scripts:
-        - name: Run tests
-            script: |
-              xcodebuild \
-              -project "$XCODE_PROJECT" \
-              -scheme "$XCODE_SCHEME" \
-              -sdk iphonesimulator \
-              -destination 'platform=iOS Simulator,name=iPhone 12 Pro Max,OS=16.1' \
-              clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-        - name: Build debug app
-            script: |
-              xcodebuild build -project "$XCODE_PROJECT" \
-              -scheme "$XCODE_SCHEME" \
-              CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-    artifacts:
-        - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-    publishing:
-        email:
-            recipients:
-                - dhimasbrd@gmail.com # Isikan email untuk notifikasi status building.
+    ios-project-debug: # workflow ID
+        name: iOS Debug # workflow name
+        instance_type: mac_mini_m1
+        environment:
+            xcode: latest
+            cocoapods: default
+            vars:
+                XCODE_PROJECT: "RawgGamesV4.xcodeproj" # Isikan nama project Anda.
+                XCODE_SCHEME: "RawgGamesV4" # Isikan nama scheme project Anda.
+        scripts:
+            - name: Run Tests
+              script: |
+                  xcodebuild \
+                  -project "$XCODE_PROJECT" \
+                  -scheme "$XCODE_SCHEME" \
+                  -sdk iphonesimulator \
+                  -destination 'platform=iOS Simulator,name=iPhone 12 Pro Max,OS=16.1' \
+                  clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+            - name: Build Debug App
+              script: |
+                  xcodebuild build -project "$XCODE_PROJECT" \
+                  -scheme "$XCODE_SCHEME" \
+                  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+        artifacts:
+            - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+        publishing:
+            email:
+                recipients:
+                    - dhimasbrd@gmail.com
