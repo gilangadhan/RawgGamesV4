@@ -43,6 +43,7 @@
 		E994968C2B75CE2B007622FA /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E994968B2B75CE2B007622FA /* SearchState.swift */; };
 		E994968E2B75CE7F007622FA /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E994968D2B75CE7F007622FA /* SearchPresenter.swift */; };
 		E99496902B75D3F6007622FA /* SearchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E994968F2B75D3F6007622FA /* SearchEvent.swift */; };
+		E99C89BD2B7C95AA00EEA5C1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E99C89BC2B7C95AA00EEA5C1 /* Localizable.xcstrings */; };
 		E99E06422B73CE85006E44AF /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E99E06412B73CE84006E44AF /* .swiftlint.yml */; };
 		E99E06442B73D08D006E44AF /* MyNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E06432B73D08D006E44AF /* MyNavigation.swift */; };
 		E99E06462B73D74B006E44AF /* GameListTileReleaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99E06452B73D74B006E44AF /* GameListTileReleaseDate.swift */; };
@@ -101,6 +102,7 @@
 		E994968B2B75CE2B007622FA /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
 		E994968D2B75CE7F007622FA /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		E994968F2B75D3F6007622FA /* SearchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEvent.swift; sourceTree = "<group>"; };
+		E99C89BC2B7C95AA00EEA5C1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E99E06412B73CE84006E44AF /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		E99E06432B73D08D006E44AF /* MyNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigation.swift; sourceTree = "<group>"; };
 		E99E06452B73D74B006E44AF /* GameListTileReleaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTileReleaseDate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				E967E7D42B73AA21007BADD0 /* Assets.xcassets */,
 				E960EC022B7B4B8900EC2DD3 /* Config */,
+				E99C89BC2B7C95AA00EEA5C1 /* Localizable.xcstrings */,
 				E967E7D62B73AA21007BADD0 /* Preview Content */,
 			);
 			path = SupportingFiles;
@@ -399,6 +402,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = E967E7C42B73AA1E007BADD0;
 			packageReferences = (
@@ -429,6 +433,7 @@
 				E960EC052B7B4B8900EC2DD3 /* ApiKey.plist in Resources */,
 				E967E7D82B73AA21007BADD0 /* Preview Assets.xcassets in Resources */,
 				E967E7D52B73AA21007BADD0 /* Assets.xcassets in Resources */,
+				E99C89BD2B7C95AA00EEA5C1 /* Localizable.xcstrings in Resources */,
 				E960EC132B7C6EF100EC2DD3 /* codemagic.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

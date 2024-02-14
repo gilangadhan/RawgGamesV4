@@ -13,6 +13,7 @@ struct DetailView: View {
     @StateObject var presenter: DetailPresenter
     @EnvironmentObject var popularPresenter: PopularPresenter
     @EnvironmentObject var favoritePresenter: FavoritePresenter
+    @Environment(\.locale) var locale
 
     private var state: DetailState {
         return presenter.state
@@ -107,7 +108,8 @@ struct DetailView: View {
                             .bold()
                         Text(
                             presenter.getDateString(
-                                date: detail.released
+                                date: detail.released,
+                                locale: locale
                             )
                         )
                         .font(.system(size: 36))

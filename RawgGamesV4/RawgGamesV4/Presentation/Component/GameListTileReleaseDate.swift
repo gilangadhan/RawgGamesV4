@@ -12,6 +12,8 @@ import Games
 struct GameListTileReleaseDate: View {
     let game: GameModel
 
+    @Environment(\.locale) var locale
+
     /// Get string formatted date from `game`.
     private func getStrDate() -> String {
         guard let released = game.released else {
@@ -20,6 +22,7 @@ struct GameListTileReleaseDate: View {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.locale = locale
         let date = dateFormatter.string(
             from: released
         )

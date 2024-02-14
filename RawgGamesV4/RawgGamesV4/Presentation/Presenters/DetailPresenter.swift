@@ -34,7 +34,7 @@ class DetailPresenter: BlocPresenter<DetailState, DetailEvent> {
     }
 
     /// Get formatted string from date.
-    func getDateString(date: Date?) -> String {
+    func getDateString(date: Date?, locale: Locale) -> String {
         guard let date else {
             return ""
         }
@@ -44,6 +44,7 @@ class DetailPresenter: BlocPresenter<DetailState, DetailEvent> {
 
         /// Set Date Format
         dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.locale = locale
 
         /// Convert Date to String
         return dateFormatter.string(from: date)
