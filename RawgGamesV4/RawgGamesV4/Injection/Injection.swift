@@ -49,4 +49,9 @@ final class Injection {
         )
     }
 
+    /// Get presenter for language option..
+    func getLocale() -> LocalePresenter {
+        return LocalePresenter()
+    }
+
 }

@@ -10,6 +10,8 @@ import Swinject
 
 @main
 struct RawgGamesV4App: App {
+    @StateObject var localePresenter: LocalePresenter = Injection.shared.getLocale()
+    
     init() {
         Container.registerServices()
     }
@@ -17,6 +19,8 @@ struct RawgGamesV4App: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(\.locale, .init(identifier: localePresenter.state))
+                .environmentObject(localePresenter)
         }
     }
 }

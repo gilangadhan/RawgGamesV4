@@ -9,6 +9,8 @@ import SwiftUI
 
 /// Show about me view.
 struct AboutView: View {
+    @EnvironmentObject var localePresenter: LocalePresenter
+
     var body: some View {
         VStack {
             Image("ProfileImage")
@@ -19,9 +21,19 @@ struct AboutView: View {
                     Circle().stroke(.white, lineWidth: 4)
                 }
                 .shadow(radius: 7)
+                .padding(.top, 20)
                 .padding(.bottom, 20)
             Text("Created by:")
-            Text("Dhimas Bagus Rizky Dewanto").bold()
+            Text("Dhimas Bagus Rizky Dewanto")
+                .bold()
+                .padding(.bottom, 20)
+
+            List {
+                Picker("Language/Bahasa", selection: $localePresenter.state) {
+                    Text("Indonesia").tag(LocalePresenter.locId)
+                    Text("English").tag(LocalePresenter.locEn)
+                }
+            }
         }
         .navigationTitle("About Me")
     }

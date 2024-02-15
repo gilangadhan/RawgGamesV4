@@ -73,6 +73,16 @@
         }
       }
     },
+    "English" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
     "Favorite" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -80,6 +90,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favorit"
+          }
+        }
+      }
+    },
+    "Indonesia" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Language/Bahasa" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         }
       }
@@ -99,7 +129,7 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Waktu Bermain"
+            "value" : "Lamanya"
           }
         }
       }
