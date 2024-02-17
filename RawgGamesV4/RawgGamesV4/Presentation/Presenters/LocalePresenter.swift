@@ -2,7 +2,7 @@
 //  LocalePresenter.swift
 //  RawgGamesV4
 //
-//  Created by TMLI IT Dev on 15/02/24.
+//  Created by Dhimas Dewanto on 15/02/24.
 //
 
 import Core
