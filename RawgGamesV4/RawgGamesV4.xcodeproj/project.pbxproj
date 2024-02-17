@@ -27,7 +27,6 @@
 		E96A4CBD2B7530C900C6F7C4 /* FavoriteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A4CBC2B7530C900C6F7C4 /* FavoriteEvent.swift */; };
 		E96A4CBF2B7537D300C6F7C4 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A4CBE2B7537D300C6F7C4 /* FavoriteRouter.swift */; };
 		E96BE9A92B75F8890077D06C /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BE9A82B75F8890077D06C /* SearchRouter.swift */; };
-		E96BE9CA2B762A300077D06C /* GameRepoImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BE9C92B762A300077D06C /* GameRepoImplTest.swift */; };
 		E97D16102B74532A00A73C78 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D160F2B74532A00A73C78 /* Injection.swift */; };
 		E97D16132B7458CD00A73C78 /* PopularEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16122B7458CD00A73C78 /* PopularEvent.swift */; };
 		E97D16272B74CE9A00A73C78 /* PopularRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D16262B74CE9A00A73C78 /* PopularRouter.swift */; };
@@ -56,16 +55,6 @@
 		E9B518482B78374B00F9F3D9 /* Favorite in Frameworks */ = {isa = PBXBuildFile; productRef = E9B518472B78374B00F9F3D9 /* Favorite */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E96BE9BB2B76119C0077D06C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E967E7C52B73AA1E007BADD0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E967E7CC2B73AA1E007BADD0;
-			remoteInfo = RawgGamesV4;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		E960EC032B7B4B8900EC2DD3 /* ApiKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		E960EC042B7B4B8900EC2DD3 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -86,8 +75,6 @@
 		E96A4CBC2B7530C900C6F7C4 /* FavoriteEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEvent.swift; sourceTree = "<group>"; };
 		E96A4CBE2B7537D300C6F7C4 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		E96BE9A82B75F8890077D06C /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
-		E96BE9B72B76119C0077D06C /* RawgGamesV4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RawgGamesV4Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E96BE9C92B762A300077D06C /* GameRepoImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepoImplTest.swift; sourceTree = "<group>"; };
 		E97D160F2B74532A00A73C78 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		E97D16122B7458CD00A73C78 /* PopularEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularEvent.swift; sourceTree = "<group>"; };
 		E97D16262B74CE9A00A73C78 /* PopularRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRouter.swift; sourceTree = "<group>"; };
@@ -126,13 +113,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E96BE9B42B76119C0077D06C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -160,7 +140,6 @@
 				E960EC0D2B7B56C400EC2DD3 /* Frameworks */,
 				E967E7CE2B73AA1F007BADD0 /* Products */,
 				E967E7CF2B73AA1F007BADD0 /* RawgGamesV4 */,
-				E96BE9B82B76119C0077D06C /* RawgGamesV4Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */,
-				E96BE9B72B76119C0077D06C /* RawgGamesV4Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,30 +224,6 @@
 				E994968F2B75D3F6007622FA /* SearchEvent.swift */,
 			);
 			path = Event;
-			sourceTree = "<group>";
-		};
-		E96BE9B82B76119C0077D06C /* RawgGamesV4Tests */ = {
-			isa = PBXGroup;
-			children = (
-				E96BE9C12B7611B70077D06C /* Data */,
-			);
-			path = RawgGamesV4Tests;
-			sourceTree = "<group>";
-		};
-		E96BE9C12B7611B70077D06C /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				E96BE9C82B762A1F0077D06C /* Repo */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		E96BE9C82B762A1F0077D06C /* Repo */ = {
-			isa = PBXGroup;
-			children = (
-				E96BE9C92B762A300077D06C /* GameRepoImplTest.swift */,
-			);
-			path = Repo;
 			sourceTree = "<group>";
 		};
 		E97D160E2B74531B00A73C78 /* Injection */ = {
@@ -358,24 +312,6 @@
 			productReference = E967E7CD2B73AA1F007BADD0 /* RawgGamesV4.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E96BE9B62B76119C0077D06C /* RawgGamesV4Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E96BE9BD2B76119C0077D06C /* Build configuration list for PBXNativeTarget "RawgGamesV4Tests" */;
-			buildPhases = (
-				E96BE9B32B76119C0077D06C /* Sources */,
-				E96BE9B42B76119C0077D06C /* Frameworks */,
-				E96BE9B52B76119C0077D06C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E96BE9BC2B76119C0077D06C /* PBXTargetDependency */,
-			);
-			name = RawgGamesV4Tests;
-			productName = RawgGamesV4Tests;
-			productReference = E96BE9B72B76119C0077D06C /* RawgGamesV4Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -388,10 +324,6 @@
 				TargetAttributes = {
 					E967E7CC2B73AA1E007BADD0 = {
 						CreatedOnToolsVersion = 15.2;
-					};
-					E96BE9B62B76119C0077D06C = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = E967E7CC2B73AA1E007BADD0;
 					};
 				};
 			};
@@ -418,7 +350,6 @@
 			projectRoot = "";
 			targets = (
 				E967E7CC2B73AA1E007BADD0 /* RawgGamesV4 */,
-				E96BE9B62B76119C0077D06C /* RawgGamesV4Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -435,13 +366,6 @@
 				E967E7D52B73AA21007BADD0 /* Assets.xcassets in Resources */,
 				E99C89BD2B7C95AA00EEA5C1 /* Localizable.xcstrings in Resources */,
 				E960EC132B7C6EF100EC2DD3 /* codemagic.yaml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E96BE9B52B76119C0077D06C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,23 +432,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E96BE9B32B76119C0077D06C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E96BE9CA2B762A300077D06C /* GameRepoImplTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E96BE9BC2B76119C0077D06C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E967E7CC2B73AA1E007BADD0 /* RawgGamesV4 */;
-			targetProxy = E96BE9BB2B76119C0077D06C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E967E7D92B73AA21007BADD0 /* Debug */ = {
@@ -704,42 +612,6 @@
 			};
 			name = Release;
 		};
-		E96BE9BE2B76119C0077D06C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhimasdewanto.RawgGamesV4Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RawgGamesV4.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RawgGamesV4";
-			};
-			name = Debug;
-		};
-		E96BE9BF2B76119C0077D06C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhimasdewanto.RawgGamesV4Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RawgGamesV4.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RawgGamesV4";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -757,15 +629,6 @@
 			buildConfigurations = (
 				E967E7DC2B73AA21007BADD0 /* Debug */,
 				E967E7DD2B73AA21007BADD0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E96BE9BD2B76119C0077D06C /* Build configuration list for PBXNativeTarget "RawgGamesV4Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E96BE9BE2B76119C0077D06C /* Debug */,
-				E96BE9BF2B76119C0077D06C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
