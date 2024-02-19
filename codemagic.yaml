@@ -1,20 +1,15 @@
 workflows:
     ios-project-debug: # workflow ID
         name: iOS Debug # workflow name
-        instance_type: mac_mini_m1
         environment:
             xcode: latest
             cocoapods: default
-            groups:
-                - plist
             vars:
-                CONFIG_FOLDER: "RawgGamesV4/RawgGamesV4/SupportingFiles/Config"
                 XCODE_PROJECT: "RawgGamesV4/RawgGamesV4.xcodeproj" # Isikan nama project Anda.
                 XCODE_SCHEME: "RawgGamesV4" # Isikan nama scheme project Anda.
         scripts:
             - name: Run Tests
               script: |
-                  echo $API_KEY > $CONFIG_FOLDER/ApiKey.plist \
                   xcodebuild \
                   -project "$XCODE_PROJECT" \
                   -scheme "$XCODE_SCHEME" \
@@ -23,7 +18,6 @@ workflows:
                   clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
             - name: Build Debug App
               script: |
-                  echo $API_KEY > $CONFIG_FOLDER/ApiKey.plist \
                   xcodebuild build -project "$XCODE_PROJECT" \
                   -scheme "$XCODE_SCHEME" \
                   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
@@ -32,4 +26,4 @@ workflows:
         publishing:
             email:
                 recipients:
-                    - dhimasbrd@gmail.com
+                    - gilangramadhan96.gr@gmail.com
